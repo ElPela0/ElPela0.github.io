@@ -6,83 +6,105 @@
     <title>Volkswagen Tiguan Comfortline 2.0TSI DSG 4×4 AT 2018</title>
     <style>
         /* Estilos generales */
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
             color: #333;
+            line-height: 1.6;
         }
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
+            max-width: 100%;
+            margin: 0 auto;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
         header {
             background: linear-gradient(135deg, #2c3e50, #1a1a1a);
             color: white;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
+            position: relative;
         }
         h1 {
             margin: 0;
-            font-size: 2.2em;
+            font-size: 1.5em;
+            padding: 0 10px;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 0.9em;
         }
         h2 {
             color: #2c3e50;
             border-bottom: 2px solid #e74c3c;
             padding-bottom: 5px;
+            font-size: 1.3em;
+            margin-top: 20px;
         }
 
-        /* Slideshow */
+        /* Slideshow móvil */
         .slideshow-container {
             position: relative;
             max-width: 100%;
             overflow: hidden;
+            touch-action: pan-y;
         }
         .slide {
             display: none;
+            width: 100%;
         }
         .slide img {
             width: 100%;
-            height: 500px;
+            height: auto;
+            max-height: 60vh;
             object-fit: cover;
+            display: block;
         }
         .prev, .next {
             cursor: pointer;
             position: absolute;
             top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
+            width: 40px;
+            height: 40px;
+            margin-top: -20px;
             color: white;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 20px;
             transition: 0.3s;
             background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 0 5px 5px 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             user-select: none;
+            z-index: 10;
+        }
+        .prev {
+            left: 10px;
         }
         .next {
-            right: 0;
-            border-radius: 5px 0 0 5px;
+            right: 10px;
         }
         .prev:hover, .next:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
         .dots {
             text-align: center;
-            padding: 10px;
+            padding: 8px 0;
             background: #f1f1f1;
+            position: relative;
+            z-index: 2;
         }
         .dot {
             cursor: pointer;
-            height: 12px;
-            width: 12px;
-            margin: 0 5px;
+            height: 10px;
+            width: 10px;
+            margin: 0 4px;
             background-color: #bbb;
             border-radius: 50%;
             display: inline-block;
@@ -92,25 +114,25 @@
             background-color: #e74c3c;
         }
 
-        /* Ficha técnica */
+        /* Ficha técnica móvil */
         .specs {
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            padding: 10px;
+            display: block;
         }
         .specs-section {
             background: #f9f9f9;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
         }
         .specs-item {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             border-bottom: 1px dashed #ddd;
             padding-bottom: 5px;
+            font-size: 0.9em;
         }
         .specs-item span:first-child {
             font-weight: bold;
@@ -118,15 +140,65 @@
         }
         .specs-item span:last-child {
             color: #e74c3c;
+            text-align: right;
+        }
+        .specs-section ul {
+            padding-left: 20px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .specs-section li {
+            margin-bottom: 5px;
         }
 
-        /* Footer */
+        /* Footer móvil */
         footer {
             background: #2c3e50;
             color: white;
             text-align: center;
+            padding: 12px;
+            font-size: 0.8em;
+        }
+
+        /* Menú móvil */
+        .mobile-menu {
+            display: none;
+            background: #2c3e50;
             padding: 10px;
+            text-align: center;
+        }
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
             font-size: 0.9em;
+        }
+
+        /* Media queries para responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .slide img {
+                max-height: 50vh;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                max-width: 1000px;
+                margin: 20px auto;
+                border-radius: 10px;
+            }
+            .specs {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+            .slide img {
+                height: 500px;
+            }
         }
     </style>
 </head>
@@ -137,43 +209,49 @@
             <p>Potencia, elegancia y tecnología</p>
         </header>
 
-        <!-- Slideshow de imágenes (usa las de tu repo) -->
+        <div class="mobile-menu">
+            <a href="#especificaciones">Especificaciones</a>
+            <a href="#equipamiento">Equipamiento</a>
+            <a href="#seguridad">Seguridad</a>
+        </div>
+
+        <!-- Slideshow de imágenes -->
         <div class="slideshow-container">
             <div class="slide fade">
-                <img src="imagenes\frente.avif" alt="Ford Mustang GT - Vista frontal">
+                <img src="imagenes/frente.avif" alt="VW Tiguan - Vista frontal">
             </div>
             <div class="slide fade">
-                <img src="imagenes\costado_conductor.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/costado_conductor.avif" alt="VW Tiguan - Vista lateral conductor">
             </div>
             <div class="slide fade">
-                <img src="imagenes/costado_acompañante.avif" alt="Ford Mustang GT - Interior">
+                <img src="imagenes/costado_acompañante.avif" alt="VW Tiguan - Vista lateral acompañante">
             </div>
             <div class="slide fade">
-                <img src="imagenes/izq_atras.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/izq_atras.avif" alt="VW Tiguan - Vista izquierda atrás">
             </div>
             <div class="slide fade">
-                <img src="imagenes/trasera.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/trasera.avif" alt="VW Tiguan - Vista trasera">
             </div>
             <div class="slide fade">
-                <img src="imagenes/interior adelante.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/interior adelante.avif" alt="VW Tiguan - Interior delantero">
             </div>
             <div class="slide fade">
-                <img src="imagenes/interior desde silla derecha.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/interior desde silla derecha.avif" alt="VW Tiguan - Interior desde asiento derecho">
             </div>
             <div class="slide fade">
-                <img src="imagenes/pantallade cerca.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/pantallade cerca.avif" alt="VW Tiguan - Pantalla de cerca">
             </div>
             <div class="slide fade">
-                <img src="imagenes/salpicadero.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/salpicadero.avif" alt="VW Tiguan - Salpicadero">
             </div>
             <div class="slide fade">
-                <img src="imagenes/salpicadero_acomp.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/salpicadero_acomp.avif" alt="VW Tiguan - Salpicadero acompañante">
             </div>
             <div class="slide fade">
-                <img src="imagenes/volante.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/volante.avif" alt="VW Tiguan - Volante">
             </div>
             <div class="slide fade">
-                <img src="imagenes/rueda.avif" alt="Ford Mustang GT - Vista lateral">
+                <img src="imagenes/rueda.avif" alt="VW Tiguan - Rueda">
             </div>
             <a class="prev" onclick="moveSlide(-1)">❮</a>
             <a class="next" onclick="moveSlide(1)">❯</a>
@@ -194,7 +272,7 @@
         </div>
 
         <!-- Ficha técnica -->
-        <div class="specs">
+        <div class="specs" id="especificaciones">
             <div class="specs-section">
                 <h2>Especificaciones técnicas</h2>
                 <div class="specs-item">
@@ -203,19 +281,23 @@
                 </div>
                 <div class="specs-item">
                     <span>Potencia:</span>
-                    <span>450 HP @ 7000 RPM</span>
+                    <span>180 HP @ 5,200 RPM</span>
                 </div>
                 <div class="specs-item">
                     <span>Torque:</span>
-                    <span>420 lb-ft @ 4600 RPM</span>
+                    <span>280 Nm @ 1,700-4,900 RPM</span>
                 </div>
                 <div class="specs-item">
                     <span>Transmisión:</span>
-                    <span>Automática DSG</span>
+                    <span>Automática DSG 6 velocidades</span>
                 </div>
                 <div class="specs-item">
                     <span>Aceleración (0-100 km/h):</span>
-                    <span>4.3 segundos</span>
+                    <span>7.7 segundos</span>
+                </div>
+                <div class="specs-item">
+                    <span>Consumo combinado:</span>
+                    <span>8.5 L/100km</span>
                 </div>
             </div>
 
@@ -223,51 +305,56 @@
                 <h2>Características</h2>
                 <div class="specs-item">
                     <span>Combustible:</span>
-                    <span>Gasolina Premium</span>
+                    <span>Nafta Premium</span>
                 </div>
                 <div class="specs-item">
                     <span>Tracción:</span>
-                    <span>4x4</span>
+                    <span>4Motion (4×4)</span>
                 </div>
                 <div class="specs-item">
                     <span>Peso:</span>
-                    <span>1,765 kg</span>
+                    <span>1,584 kg</span>
                 </div>
                 <div class="specs-item">
-                    <span>Capacidad de carga:</span>
-                    <span>382 litros</span>
+                    <span>Capacidad de baúl:</span>
+                    <span>520 litros</span>
                 </div>
                 <div class="specs-item">
-                    <span>Precio estimado:</span>
-                    <span>$35,000 USD</span>
+                    <span>Kilometraje:</span>
+                    <span>65,000 km</span>
                 </div>
             </div>
 
-            <div class="specs-section">
+            <div class="specs-section" id="equipamiento">
                 <h2>Equipamiento</h2>
                 <ul>
-                    <li>Sistema de sonido B&O Premium</li>
-                    <li>Pantalla táctil Sync 4 de 12"</li>
-                    <li>Asientos de tela con calefacción/ventilación</li>
-                    <li>Modos de conducción (Normal, Sport, Track)</li>
-                    <li>Faros LED con firma luminosa</li>
+                    <li>Pantalla táctil de 6.5" con App-Connect</li>
+                    <li>Asientos de tela premium</li>
+                    <li>Volante multifunción forrado en cuero</li>
+                    <li>Control de crucero</li>
+                    <li>Faros de xenón con lavafaros</li>
+                    <li>Llantas de aleación 18"</li>
+                    <li>Techo panorámico eléctrico</li>
+                    <li>Sensores de estacionamiento delanteros y traseros</li>
                 </ul>
             </div>
 
-            <div class="specs-section">
+            <div class="specs-section" id="seguridad">
                 <h2>Seguridad</h2>
                 <ul>
-                    <li>Control de estabilidad avanzado</li>
-                    <li>Airbags frontales, laterales y de cortina</li>
-                    <li>Sistema de frenos Brembo</li>
-                    <li>Cámara de visión 360°</li>
-                    <li>Alerta de punto ciego</li>
+                    <li>6 airbags (frontales, laterales y de cortina)</li>
+                    <li>Control de estabilidad ESP</li>
+                    <li>Control de tracción ASR</li>
+                    <li>Anclajes ISOFIX</li>
+                    <li>Frenos ABS con EBD</li>
+                    <li>Asistente de arranque en pendiente</li>
+                    <li>Cámara de retroceso</li>
                 </ul>
             </div>
         </div>
 
         <footer>
-            <p>contacto +54XXXXXXXXXX</p>
+            <p>Contacto: +54 9 XXX XXX-XXXX</p>
         </footer>
     </div>
 
@@ -308,6 +395,30 @@
         setInterval(() => {
             moveSlide(1);
         }, 5000);
+
+        // Touch events para móviles
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const slider = document.querySelector('.slideshow-container');
+        
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX) {
+                moveSlide(1); // Swipe izquierda
+            }
+            if (touchEndX > touchStartX) {
+                moveSlide(-1); // Swipe derecha
+            }
+        }
     </script>
 </body>
 </html>
