@@ -3,91 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha Técnica del Auto</title>
+    <title>Volkswagen Tiguan Comfortline 2.0TSI DSG 4×4 AT 2018</title>
     <style>
+        /* Estilos generales */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            background-color: #f5f5f5;
             color: #333;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 20px auto;
             background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+            color: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
         }
         h1 {
-            text-align: center;
-            color: #0066cc;
+            margin: 0;
+            font-size: 2.2em;
         }
-        .car-image {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-        .specs {
-            margin-top: 20px;
-        }
-        .specs h2 {
-            border-bottom: 2px solid #0066cc;
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
             padding-bottom: 5px;
         }
-        .specs ul {
-            list-style-type: none;
-            padding: 0;
+
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
         }
-        .specs li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+        .slide {
+            display: none;
         }
-        .specs li:last-child {
-            border-bottom: none;
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
         }
-        .highlight {
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
             font-weight: bold;
-            color: #0066cc;
+            font-size: 24px;
+            transition: 0.3s;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 0 5px 5px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 5px 0 0 5px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dots {
+            text-align: center;
+            padding: 10px;
+            background: #f1f1f1;
+        }
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .active, .dot:hover {
+            background-color: #e74c3c;
+        }
+
+        /* Ficha técnica */
+        .specs {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .specs-section {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .specs-item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+        }
+        .specs-item span:first-child {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .specs-item span:last-child {
+            color: #e74c3c;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Ficha Técnica del Auto</h1>
-        
-        <!-- Imágenes del auto (reemplaza con las tuyas) -->
-        <img src="https://ejemplo.com/imagen-auto.jpg" alt="Auto" class="car-image">
-        <!-- Puedes agregar más imágenes si necesitas -->
-        <!-- <img src="auto-interior.jpg" alt="Interior del auto" class="car-image"> -->
+        <header>
+            <h1>Volkswagen Tiguan Comfortline 2.0TSI DSG 4×4 AT 2018</h1>
+            <p>Potencia, elegancia y tecnología</p>
+        </header>
 
-        <div class="specs">
-            <h2>Especificaciones Técnicas</h2>
-            <ul>
-                <li><span class="highlight">Marca:</span> Toyota</li>
-                <li><span class="highlight">Modelo:</span> Corolla 2023</li>
-                <li><span class="highlight">Motor:</span> 2.0L 4 cilindros</li>
-                <li><span class="highlight">Potencia:</span> 169 HP</li>
-                <li><span class="highlight">Transmisión:</span> Automática CVT</li>
-                <li><span class="highlight">Combustible:</span> Gasolina</li>
-                <li><span class="highlight">Consumo:</span> 15 km/L (ciudad) / 18 km/L (carretera)</li>
-                <li><span class="highlight">Precio:</span> $25,000 USD</li>
-            </ul>
+        <!-- Slideshow de imágenes (usa las de tu repo) -->
+        <div class="slideshow-container">
+            <div class="slide fade">
+                <img src="imagenes\frente.avif" alt="Ford Mustang GT - Vista frontal">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes\costado_conductor.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/costado_acompañante.avif" alt="Ford Mustang GT - Interior">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/izq_atras.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/trasera.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/interior adelante.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/interior desde silla derecha.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/pantallade cerca.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/salpicadero.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/salpicadero_acomp.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/volante.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <div class="slide fade">
+                <img src="imagenes/rueda.avif" alt="Ford Mustang GT - Vista lateral">
+            </div>
+            <a class="prev" onclick="moveSlide(-1)">❮</a>
+            <a class="next" onclick="moveSlide(1)">❯</a>
+        </div>
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+            <span class="dot" onclick="currentSlide(9)"></span>
+            <span class="dot" onclick="currentSlide(10)"></span>
+            <span class="dot" onclick="currentSlide(11)"></span>
+            <span class="dot" onclick="currentSlide(12)"></span>
         </div>
 
+        <!-- Ficha técnica -->
         <div class="specs">
-            <h2>Características Principales</h2>
-            <ul>
-                <li>Sistema de navegación GPS</li>
-                <li>Cámara de retroceso</li>
-                <li>Asientos de cuero</li>
-                <li>Control crucero adaptativo</li>
-                <li>Bluetooth y Apple CarPlay/Android Auto</li>
-            </ul>
+            <div class="specs-section">
+                <h2>Especificaciones técnicas</h2>
+                <div class="specs-item">
+                    <span>Motor:</span>
+                    <span>2.0 TSI</span>
+                </div>
+                <div class="specs-item">
+                    <span>Potencia:</span>
+                    <span>450 HP @ 7000 RPM</span>
+                </div>
+                <div class="specs-item">
+                    <span>Torque:</span>
+                    <span>420 lb-ft @ 4600 RPM</span>
+                </div>
+                <div class="specs-item">
+                    <span>Transmisión:</span>
+                    <span>Automática DSG</span>
+                </div>
+                <div class="specs-item">
+                    <span>Aceleración (0-100 km/h):</span>
+                    <span>4.3 segundos</span>
+                </div>
+            </div>
+
+            <div class="specs-section">
+                <h2>Características</h2>
+                <div class="specs-item">
+                    <span>Combustible:</span>
+                    <span>Gasolina Premium</span>
+                </div>
+                <div class="specs-item">
+                    <span>Tracción:</span>
+                    <span>4x4</span>
+                </div>
+                <div class="specs-item">
+                    <span>Peso:</span>
+                    <span>1,765 kg</span>
+                </div>
+                <div class="specs-item">
+                    <span>Capacidad de carga:</span>
+                    <span>382 litros</span>
+                </div>
+                <div class="specs-item">
+                    <span>Precio estimado:</span>
+                    <span>$35,000 USD</span>
+                </div>
+            </div>
+
+            <div class="specs-section">
+                <h2>Equipamiento</h2>
+                <ul>
+                    <li>Sistema de sonido B&O Premium</li>
+                    <li>Pantalla táctil Sync 4 de 12"</li>
+                    <li>Asientos de tela con calefacción/ventilación</li>
+                    <li>Modos de conducción (Normal, Sport, Track)</li>
+                    <li>Faros LED con firma luminosa</li>
+                </ul>
+            </div>
+
+            <div class="specs-section">
+                <h2>Seguridad</h2>
+                <ul>
+                    <li>Control de estabilidad avanzado</li>
+                    <li>Airbags frontales, laterales y de cortina</li>
+                    <li>Sistema de frenos Brembo</li>
+                    <li>Cámara de visión 360°</li>
+                    <li>Alerta de punto ciego</li>
+                </ul>
+            </div>
         </div>
+
+        <footer>
+            <p>contacto +54XXXXXXXXXX</p>
+        </footer>
     </div>
+
+    <script>
+        // Slider automático
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function moveSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            const dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        // Cambio automático cada 5 segundos
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
+    </script>
 </body>
 </html>
